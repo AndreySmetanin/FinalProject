@@ -5,13 +5,13 @@ spring:
     username: root
     password: andrey2675
     url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
-jpa:
-  properties:
-    hibernate:
+  jpa:
+   properties:
+     hibernate:
       dialect: org.hibernate.dialect.MySQL8Dialect
-  hibernate:
+   hibernate:
     ddl-auto: update
-  show-sql: true
+   show-sql: true
 indexing-settings:
   sites:
     - url: https://www.lenta.ru

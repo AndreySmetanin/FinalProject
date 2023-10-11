@@ -1,22 +1,81 @@
 package searchengine.model;
 
+import org.springframework.data.annotation.Id;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
+@Table(name = "site")
 public class Site {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    //@Enumerated(EnumType.STRING)
     @Column(columnDefinition = "Enum('INDEXING', 'INDEXED', 'FAILED'")
-    String status;
+    //@Column(columnDefinition = "Enum")
+    private String status;
 
+    @Column(name = "Status_time")
+    private Date statusTime;
 
-    LocalDate statusTime;
+    @Column(name = "last_error")
+    private String error;
 
-    String error;
+    @Column(name = "url")
+    private String urlSite;
 
-    String url;
+    @Column(name = "name")
+    private String nameSite;
 
-    String name;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getStatusTime() {
+        return statusTime;
+    }
+
+    public void setStatusTime(Date statusTime) {
+        this.statusTime = statusTime;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public String getUrl() {
+        return urlSite;
+    }
+
+    public void setUrl(String url) {
+        this.urlSite = url;
+    }
+
+    public String getName() {
+        return nameSite;
+    }
+
+    public void setName(String name) {
+        this.nameSite = name;
+    }
 }
